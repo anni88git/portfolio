@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anni | Full-Stack & AI Developer</title>
+  <title>Anirudh Chopra | AI & Full-Stack Engineer</title>
   <style>
     :root {
       --bg: #000000;
-      --card-bg: rgba(18, 18, 22, 0.7);
+      --card-bg: rgba(18, 18, 22, 0.75);
       --border: rgba(255, 255, 255, 0.12);
       --border-hover: #818cf8;
       --accent: #6366f1;
@@ -18,55 +18,76 @@
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
     html { scroll-behavior: smooth; }
-    body { background-color: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; overflow-x: hidden; }
+    body { background-color: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6; overflow-x: hidden; }
 
-    /* Glowing Background Orbs */
-    .glow-1 { position: fixed; top: -100px; left: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
-    .glow-2 { position: fixed; bottom: -100px; right: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
+    /* Ambient Background Orbs */
+    .glow-1 { position: fixed; top: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
+    .glow-2 { position: fixed; bottom: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
 
-    /* Container */
     .container { max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem; position: relative; z-index: 10; }
 
-    /* Hero */
+    /* Navigation Bar */
+    nav {
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1rem 0; margin-bottom: 4rem; border-bottom: 1px solid var(--border);
+    }
+    .nav-name { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; }
+    .nav-links { display: flex; gap: 1.5rem; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+    .nav-links a:hover { color: #fff; }
+
+    /* Hero Section */
     header { margin-bottom: 5rem; text-align: left; }
     .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: #4ade80; margin-bottom: 1.5rem; }
     .dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 10px #4ade80; }
     h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.8rem; background: linear-gradient(180deg, #ffffff 40%, #a1a1aa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    p.subtitle { font-size: 1.25rem; color: var(--muted); max-width: 600px; }
-
+    p.subtitle { font-size: 1.2rem; color: var(--muted); max-width: 650px; margin-bottom: 1.5rem; }
+    
+    .contact-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    
     /* Section Headers */
     .section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; }
     .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* Project Cards */
-    .projects-grid { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 5rem; }
-    .project-card {
+    /* Section Wrapper */
+    section { margin-bottom: 5rem; }
+
+    /* Cards */
+    .card-grid { display: flex; flex-direction: column; gap: 1.8rem; }
+    .card {
       background: var(--card-bg); border: 1px solid var(--border); backdrop-filter: blur(16px);
       border-radius: 20px; padding: 2rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
-    .project-card:hover { transform: translateY(-4px); border-color: var(--border-hover); box-shadow: 0 10px 30px rgba(99,102,241,0.15); }
+    .card:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: 0 10px 30px rgba(99,102,241,0.12); }
     
-    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 1rem; }
-    .project-title { font-size: 1.5rem; font-weight: 700; color: #fff; }
-    .project-desc { color: var(--muted); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem; }
+    .card-title { font-size: 1.4rem; font-weight: 700; color: #fff; }
+    .card-subtitle { font-size: 0.95rem; color: var(--accent); font-weight: 600; }
+    .card-date { font-size: 0.85rem; color: var(--muted); }
+
+    /* Bullet Lists */
+    ul.bullet-list { margin-left: 1.2rem; color: var(--muted); font-size: 0.95rem; }
+    ul.bullet-list li { margin-bottom: 0.5rem; }
 
     /* Tags & Buttons */
-    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.2rem 0; }
     .tag { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); color: #cbd5e1; padding: 4px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 500; }
     
-    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn-group { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
     .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px;
-      font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease;
+      display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 10px;
+      font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s ease;
     }
-    .btn-primary { background: var(--text); color: #000; }
+    .btn-primary { background: #fff; color: #000; }
     .btn-primary:hover { background: #e4e4e7; transform: scale(1.02); }
     .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border); }
     .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: #fff; }
 
-    /* Tech Stack Pills */
-    .skills-grid { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 4rem; }
-    .skill-pill { background: var(--card-bg); border: 1px solid var(--border); padding: 10px 18px; border-radius: 99px; font-size: 0.9rem; color: #fff; }
+    /* Skills Grid */
+    .skills-category { margin-bottom: 1.5rem; }
+    .skills-category h4 { color: #fff; font-size: 1rem; margin-bottom: 0.8rem; font-weight: 600; }
+    .skills-list { display: flex; gap: 0.6rem; flex-wrap: wrap; }
+    .skill-pill { background: var(--card-bg); border: 1px solid var(--border); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: var(--muted); }
 
     footer { text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 2rem; }
   </style>
@@ -76,79 +97,216 @@
   <div class="glow-2"></div>
 
   <div class="container">
-    <!-- HERO SECTION -->
+    
+    <!-- NAVBAR -->
+    <nav>
+      <div class="nav-name">Anirudh Chopra</div>
+      <div class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
+      </div>
+    </nav>
+
+    <!-- HERO / ABOUT -->
     <header>
-      <div class="status-badge"><span class="dot"></span> Available for Projects & Engineering Roles</div>
-      <h1>Hi, I'm Anni.</h1>
-      <p class="subtitle">Full-Stack Developer building modern web platforms, REST APIs, and AI voice interfaces.</p>
+      <div class="status-badge"><span class="dot"></span> Open to Roles & AI/Engineering Opportunities</div>
+      <h1>Anirudh Chopra</h1>
+      <p class="subtitle">
+        Computer Science Engineer specializing in AI/ML, Large Language Models, and Full-Stack Systems Development.
+      </p>
+      <div class="contact-bar">
+        <a href="mailto:anirudhc422@gmail.com" class="btn btn-secondary">📧 anirudhc422@gmail.com</a>
+        <a href="tel:+918744858415" class="btn btn-secondary">📞 +91-8744858415</a>
+        <a href="https://github.com/anni88git" target="_blank" class="btn btn-secondary">💻 GitHub</a>
+      </div>
     </header>
 
+    <!-- WORK EXPERIENCE -->
+    <section id="experience">
+      <h2 class="section-title">Work Experience</h2>
+      <div class="card-grid">
+        
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Gen AI Engineer Intern</h3>
+              <div class="card-subtitle">Digital Hercules Innovations (Create AiGenie)</div>
+            </div>
+            <span class="card-date">Apr 2026 – July 2026</span>
+          </div>
+          <ul class="bullet-list">
+            <li>Developed production-level AI components for a B2B SaaS platform focused on Amazon Ads optimization.</li>
+            <li>Built rule-based and ML-powered automation workflows for real-time ad-performance analysis.</li>
+            <li>Preprocessed e-commerce datasets using Python for feature engineering and AI/ML workflows.</li>
+          </ul>
+        </article>
+
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Machine Learning Intern</h3>
+              <div class="card-subtitle">OK Driver</div>
+            </div>
+            <span class="card-date">May 2025 – July 2025</span>
+          </div>
+          <ul class="bullet-list">
+            <li>Engineered Supervised Fine-Tuning (SFT) workflows for XLM-ROBERTa, processing 10k+ multilingual inputs for intent detection.</li>
+            <li>Designed categorization logic for detecting driver distress signals while maintaining low-latency performance.</li>
+            <li>Built evaluation frameworks for conversational AI pipelines, reducing hallucinations by 15%.</li>
+          </ul>
+        </article>
+
+      </div>
+    </section>
+
     <!-- FEATURED PROJECTS -->
-    <section>
+    <section id="projects">
       <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid">
+      <div class="card-grid">
         
         <!-- PROJECT 1: NETWORX -->
-        <article class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Networx — Developer Platform</h3>
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Networx — Full-Stack Community Platform</h3>
+            <span class="card-date">Feb 2026</span>
           </div>
-          <p class="project-desc">
-            A developer platform featuring real-time post feeds, interactive user directories, audio asset pipelines, and cross-origin REST backend connectivity.
+          <p style="color: var(--muted); font-size:0.95rem;">
+            A professional networking platform featuring dynamic feeds, audio asset streaming pipelines, user directories, and RESTful APIs hosted on Vercel and Render infrastructure.
           </p>
           <div class="tags">
-            <span class="tag">JavaScript</span>
-            <span class="tag">Node.js / Express</span>
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST APIs</span>
             <span class="tag">Vercel</span>
-            <span class="tag">Render API</span>
-            <span class="tag">Glassmorphism UI</span>
           </div>
           <div class="btn-group">
             <a href="https://networx-frontend-6623kwsez-anni88gits-projects.vercel.app/" target="_blank" class="btn btn-primary">⚡ Live Demo</a>
-            <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">💻 Frontend Code</a>
+            <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">💻 Source Code</a>
           </div>
         </article>
 
-        <!-- PROJECT 2: JOEY VOICE BOT -->
-        <article class="project-card">
-          <div class="project-header">
-            <h3 class="project-title">Joey — Multilingual Voice Bot</h3>
+        <!-- PROJECT 2: JOEY -->
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Joey — Multilingual Conversational Assistant</h3>
+            <span class="card-date">Jan 2025</span>
           </div>
-          <p class="project-desc">
-            An intelligent AI voice assistant built to process speech recognition and facilitate multi-language conversational interaction in real-time.
+          <p style="color: var(--muted); font-size:0.95rem;">
+            Multilingual conversational assistant supporting 8+ languages built with asynchronous Python function calls and STT/TTS integration for intent mapping and state management.
           </p>
           <div class="tags">
             <span class="tag">Python</span>
-            <span class="tag">AI / Speech Processing</span>
-            <span class="tag">NLP</span>
-            <span class="tag">Voice Synthesis</span>
+            <span class="tag">NLP / NLU</span>
+            <span class="tag">Azure Functions</span>
+            <span class="tag">Speech Processing</span>
           </div>
           <div class="btn-group">
             <a href="https://github.com/anni88git/joey-the-multilingual-voice-bot" target="_blank" class="btn btn-secondary">💻 Source Code</a>
           </div>
         </article>
 
+        <!-- PROJECT 3: HERMES -->
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Hermes — ML Compiler</h3>
+            <span class="card-date">Mar 2026</span>
+          </div>
+          <p style="color: var(--muted); font-size:0.95rem;">
+            Mini-compiler designed around machine learning syntax, featuring a custom lexer, recursive descent parser, and data structure implementations for tokenization and validation.
+          </p>
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Data Structures</span>
+            <span class="tag">Lexical Analysis</span>
+            <span class="tag">Recursive Descent Parsing</span>
+          </div>
+          <div class="btn-group">
+            <a href="https://github.com/anni88git" target="_blank" class="btn btn-secondary">💻 Source Code</a>
+          </div>
+        </article>
+
       </div>
     </section>
 
-    <!-- TECH STACK -->
-    <section>
+    <!-- TECHNICAL SKILLS -->
+    <section id="skills">
       <h2 class="section-title">Technical Skills</h2>
-      <div class="skills-grid">
-        <span class="skill-pill">JavaScript (ES6+)</span>
-        <span class="skill-pill">Python</span>
-        <span class="skill-pill">Node.js & Express</span>
-        <span class="skill-pill">RESTful APIs</span>
-        <span class="skill-pill">AI & Voice Speech Processing</span>
-        <span class="skill-pill">HTML5 / Modern CSS</span>
-        <span class="skill-pill">Vercel & Render Cloud</span>
-        <span class="skill-pill">Git / GitHub Workflow</span>
+      <div class="card">
+        
+        <div class="skills-category">
+          <h4>Programming & Core</h4>
+          <div class="skills-list">
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">SQL</span>
+            <span class="skill-pill">Data Structures & Algorithms</span>
+            <span class="skill-pill">OOP</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h4>Machine Learning & Deep Learning</h4>
+          <div class="skills-list">
+            <span class="skill-pill">NLP / NLU</span>
+            <span class="skill-pill">Supervised Fine-Tuning (SFT)</span>
+            <span class="skill-pill">Transformers</span>
+            <span class="skill-pill">XLM-ROBERTa</span>
+            <span class="skill-pill">TensorFlow</span>
+            <span class="skill-pill">PyTorch</span>
+            <span class="skill-pill">Generative AI</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h4>Frameworks & Tools</h4>
+          <div class="skills-list">
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express</span>
+            <span class="skill-pill">REST APIs</span>
+            <span class="skill-pill">Azure Functions</span>
+            <span class="skill-pill">MongoDB</span>
+            <span class="skill-pill">MySQL</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Git / GitHub</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- EDUCATION & CERTIFICATIONS -->
+    <section id="education">
+      <h2 class="section-title">Education & Achievements</h2>
+      <div class="card-grid">
+        
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">IILM University, Greater Noida</h3>
+              <div class="card-subtitle">B.Tech in Computer Science (AI & ML Specialization)</div>
+            </div>
+            <span class="card-date">2023 – 2027 | CGPA: 8.8/10</span>
+          </div>
+        </article>
+
+        <article class="card">
+          <h3 class="card-title" style="margin-bottom: 0.8rem;">Certifications & Leadership</h3>
+          <ul class="bullet-list">
+            <li><strong>AWS Certified:</strong> Machine Learning Foundations</li>
+            <li><strong>Team Leadership:</strong> Led a team of 4 developing a transformer-based system using XLM-ROBERTa.</li>
+          </ul>
+        </article>
+
       </div>
     </section>
 
     <footer>
-      <p>© 2026 Anni. Engineered for performance.</p>
+      <p>© 2026 Anirudh Chopra. Built for high performance.</p>
     </footer>
+
   </div>
 </body>
 </html>
