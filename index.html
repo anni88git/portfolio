@@ -3,89 +3,85 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anirudh Chopra | AI & Full-Stack Engineer</title>
+  <title>Anirudh Chopra | AI & Embedded Systems Engineer</title>
   <style>
     :root {
-      --bg: #000000;
-      --card-bg: rgba(18, 18, 22, 0.75);
-      --border: rgba(255, 255, 255, 0.12);
+      --bg: #030712;
+      --card-bg: rgba(17, 24, 39, 0.75);
+      --border: rgba(255, 255, 255, 0.1);
       --border-hover: #818cf8;
       --accent: #6366f1;
       --cyan: #06b6d4;
-      --text: #ffffff;
-      --muted: #a1a1aa;
+      --text: #f9fafb;
+      --muted: #9ca3af;
     }
 
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
     html { scroll-behavior: smooth; }
-    body { background-color: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6; overflow-x: hidden; }
+    body { background-color: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.6; overflow-x: hidden; position: relative; }
 
-    /* Ambient Background Orbs */
-    .glow-1 { position: fixed; top: -150px; left: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(99,102,241,0.2) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
-    .glow-2 { position: fixed; bottom: -150px; right: -150px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(6,182,212,0.15) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
+    /* Animated Canvas Background */
+    #bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
 
-    .container { max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem; position: relative; z-index: 10; }
+    .container { max-width: 920px; margin: 0 auto; padding: 4rem 1.5rem; position: relative; z-index: 10; }
 
-    /* Navigation Bar */
-    nav {
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 1rem 0; margin-bottom: 4rem; border-bottom: 1px solid var(--border);
-    }
+    /* Navigation */
+    nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; margin-bottom: 4rem; border-bottom: 1px solid var(--border); }
     .nav-name { font-weight: 800; font-size: 1.2rem; letter-spacing: -0.5px; }
     .nav-links { display: flex; gap: 1.5rem; }
     .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
     .nav-links a:hover { color: #fff; }
 
-    /* Hero Section */
-    header { margin-bottom: 5rem; text-align: left; }
-    .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: #4ade80; margin-bottom: 1.5rem; }
-    .dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 10px #4ade80; }
-    h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.8rem; background: linear-gradient(180deg, #ffffff 40%, #a1a1aa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    p.subtitle { font-size: 1.2rem; color: var(--muted); max-width: 650px; margin-bottom: 1.5rem; }
+    /* Hero */
+    header { margin-bottom: 5rem; }
+    .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: #818cf8; margin-bottom: 1.5rem; }
+    .dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; box-shadow: 0 0 10px #34d399; }
+    h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.8rem; background: linear-gradient(180deg, #ffffff 40%, #9ca3af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p.subtitle { font-size: 1.2rem; color: var(--muted); max-width: 680px; }
     
-    .contact-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.5rem; }
+    .contact-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
     
-    /* Section Headers */
+    /* Section Formatting */
     .section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; }
     .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-
-    /* Section Wrapper */
     section { margin-bottom: 5rem; }
 
     /* Cards */
-    .card-grid { display: flex; flex-direction: column; gap: 1.8rem; }
-    .card {
-      background: var(--card-bg); border: 1px solid var(--border); backdrop-filter: blur(16px);
-      border-radius: 20px; padding: 2rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-    }
-    .card:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: 0 10px 30px rgba(99,102,241,0.12); }
+    .card-grid { display: flex; flex-direction: column; gap: 2rem; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); backdrop-filter: blur(16px); border-radius: 20px; padding: 2rem; transition: all 0.3s ease; }
+    .card:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: 0 12px 35px rgba(99,102,241,0.15); }
     
-    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 0.5rem; }
+    .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
     .card-title { font-size: 1.4rem; font-weight: 700; color: #fff; }
     .card-subtitle { font-size: 0.95rem; color: var(--accent); font-weight: 600; }
     .card-date { font-size: 0.85rem; color: var(--muted); }
 
-    /* Bullet Lists */
-    ul.bullet-list { margin-left: 1.2rem; color: var(--muted); font-size: 0.95rem; }
-    ul.bullet-list li { margin-bottom: 0.5rem; }
+    /* Project Image Styling */
+    .project-img-container { width: 100%; max-height: 420px; overflow: hidden; border-radius: 14px; margin: 1.2rem 0; border: 1px solid var(--border); background: #000; display: flex; justify-content: center; align-items: center; }
+    .project-img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.4s ease; }
+    .card:hover .project-img { transform: scale(1.02); }
 
-    /* Tags & Buttons */
+    /* Insight Boxes (Motivation & Challenges) */
+    .insight-box { background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--accent); padding: 0.8rem 1.2rem; border-radius: 0 10px 10px 0; margin: 0.8rem 0; font-size: 0.9rem; }
+    .insight-box.challenge { border-left-color: var(--cyan); }
+    .insight-title { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #e2e8f0; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+
+    /* Lists, Tags, Buttons */
+    ul.bullet-list { margin-left: 1.2rem; color: var(--muted); font-size: 0.95rem; }
+    ul.bullet-list li { margin-bottom: 0.4rem; }
+
     .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.2rem 0; }
     .tag { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); color: #cbd5e1; padding: 4px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 500; }
     
-    .btn-group { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
-    .btn {
-      display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 10px;
-      font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s ease;
-    }
+    .btn-group { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 10px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s ease; }
     .btn-primary { background: #fff; color: #000; }
     .btn-primary:hover { background: #e4e4e7; transform: scale(1.02); }
     .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border); }
     .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: #fff; }
 
-    /* Skills Grid */
     .skills-category { margin-bottom: 1.5rem; }
-    .skills-category h4 { color: #fff; font-size: 1rem; margin-bottom: 0.8rem; font-weight: 600; }
+    .skills-category h4 { color: #fff; font-size: 0.95rem; margin-bottom: 0.8rem; font-weight: 600; }
     .skills-list { display: flex; gap: 0.6rem; flex-wrap: wrap; }
     .skill-pill { background: var(--card-bg); border: 1px solid var(--border); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: var(--muted); }
 
@@ -93,28 +89,27 @@
   </style>
 </head>
 <body>
-  <div class="glow-1"></div>
-  <div class="glow-2"></div>
+
+  <!-- Background Particle Animation -->
+  <canvas id="bg-canvas"></canvas>
 
   <div class="container">
     
-    <!-- NAVBAR -->
     <nav>
       <div class="nav-name">Anirudh Chopra</div>
       <div class="nav-links">
-        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
         <a href="#skills">Skills</a>
         <a href="#education">Education</a>
       </div>
     </nav>
 
-    <!-- HERO / ABOUT -->
     <header>
-      <div class="status-badge"><span class="dot"></span> Open to Roles & AI/Engineering Opportunities</div>
+      <div class="status-badge"><span class="dot"></span> Open to Engineering Roles</div>
       <h1>Anirudh Chopra</h1>
       <p class="subtitle">
-        Computer Science Engineer specializing in AI/ML, Large Language Models, and Full-Stack Systems Development.
+        Computer Science & AI Engineer developing intelligent software platforms, embedded IoT hardware, and custom NLP models.
       </p>
       <div class="contact-bar">
         <a href="mailto:anirudhc422@gmail.com" class="btn btn-secondary">📧 anirudhc422@gmail.com</a>
@@ -122,6 +117,145 @@
         <a href="https://github.com/anni88git" target="_blank" class="btn btn-secondary">💻 GitHub</a>
       </div>
     </header>
+
+    <!-- FEATURED PROJECTS -->
+    <section id="projects">
+      <h2 class="section-title">Projects & Hardware Innovations</h2>
+      <div class="card-grid">
+        
+        <!-- HARDWARE INNOVATION: SMART GLOVE -->
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Real-Time ASL Smart Translator Glove</h3>
+              <div class="card-subtitle">Embedded IoT & Wearable Gesture Recognition</div>
+            </div>
+            <span class="card-date">Hardware Innovation</span>
+          </div>
+
+          <div class="project-img-container">
+            <img src="Screenshot_2026-01-20-21-59-27-07_92460851df6f172a4592fca41cc2d2e6.jpg" alt="ASL Smart Glove Hardware Prototype" class="project-img" />
+          </div>
+
+          <p style="color: var(--muted); font-size:0.95rem;">
+            A wearable human-computer interaction glove converting American Sign Language (ASL) finger bends and spatial movements directly into English text and speech over wireless Bluetooth Low Energy (BLE).
+          </p>
+
+          <div class="insight-box">
+            <div class="insight-title">💡 Motivation</div>
+            <p style="color: #cbd5e1;">To eliminate accessibility barriers for the speech and hearing impaired by creating an affordable, wearable bridge between sign language and spoken English without needing external camera tracking.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">🛠️ Technical Difficulties</div>
+            <p style="color: #cbd5e1;">Filtering non-linear analog sensor noise caused by rapid hand motions, and eliminating 6-axis IMU spatial drift on the ESP32 while keeping wireless latency under 50ms for natural translation.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">MPU6050 (6-Axis IMU)</span>
+            <span class="tag">Flex Sensors</span>
+            <span class="tag">Bluetooth Low Energy (BLE)</span>
+            <span class="tag">Embedded C/C++</span>
+            <span class="tag">Signal Processing</span>
+          </div>
+        </article>
+
+        <!-- PROJECT: NETWORX -->
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Networx — Full-Stack Community Platform</h3>
+            <span class="card-date">Feb 2026</span>
+          </div>
+          <p style="color: var(--muted); font-size:0.95rem;">
+            Full-stack social architecture enabling dynamic developer feeds, interactive profile directories, and real-time audio asset streaming pipelines.
+          </p>
+
+          <div class="insight-box">
+            <div class="insight-title">💡 Motivation</div>
+            <p style="color: #cbd5e1;">Engineered to study real-time data flow and decoupled backend deployment strategies across distributed hosting platforms.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">🛠️ Technical Difficulties</div>
+            <p style="color: #cbd5e1;">Securing multi-origin REST API requests across Vercel frontend and Render backend while preventing audio asset streaming bottlenecks.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">REST APIs</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Render</span>
+          </div>
+          <div class="btn-group">
+            <a href="https://networx-frontend-6623kwsez-anni88gits-projects.vercel.app/" target="_blank" class="btn btn-primary">⚡ Live Demo</a>
+            <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">💻 Source Code</a>
+          </div>
+        </article>
+
+        <!-- PROJECT: JOEY -->
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Joey — Multilingual Voice Assistant</h3>
+            <span class="card-date">Jan 2025</span>
+          </div>
+          <p style="color: var(--muted); font-size:0.95rem;">
+            Voice assistant supporting 8+ languages using asynchronous Python function calls and integrated STT/TTS intent mapping routines.
+          </p>
+
+          <div class="insight-box">
+            <div class="insight-title">💡 Motivation</div>
+            <p style="color: #cbd5e1;">To make voice interfaces accessible to non-English speakers through low-latency speech translation pipelines.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">🛠️ Technical Difficulties</div>
+            <p style="color: #cbd5e1;">Synchronizing asynchronous Speech-To-Text and Text-To-Speech queues to prevent context loss during rapid multilingual conversational shifts.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">NLP / NLU</span>
+            <span class="tag">Azure Functions</span>
+            <span class="tag">STT/TTS Pipelines</span>
+          </div>
+          <div class="btn-group">
+            <a href="https://github.com/anni88git/joey-the-multilingual-voice-bot" target="_blank" class="btn btn-secondary">💻 Source Code</a>
+          </div>
+        </article>
+
+        <!-- PROJECT: HERMES -->
+        <article class="card">
+          <div class="card-header">
+            <h3 class="card-title">Hermes — Machine Learning Compiler</h3>
+            <span class="card-date">Mar 2026</span>
+          </div>
+          <p style="color: var(--muted); font-size:0.95rem;">
+            Domain-specific compiler with custom lexical analysis and recursive descent parsing algorithms tailored for ML data structures.
+          </p>
+
+          <div class="insight-box">
+            <div class="insight-title">💡 Motivation</div>
+            <p style="color: #cbd5e1;">Built to understand lower-level compilation phases, tokenization, and AST generation specifically for machine learning syntax.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">🛠️ Technical Difficulties</div>
+            <p style="color: #cbd5e1;">Handling grammar ambiguity and recursive validation logic during lexical parsing without performance degradation.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Compiler Design</span>
+            <span class="tag">Lexical Analysis</span>
+            <span class="tag">AST Validation</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
 
     <!-- WORK EXPERIENCE -->
     <section id="experience">
@@ -161,101 +295,31 @@
       </div>
     </section>
 
-    <!-- FEATURED PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="card-grid">
-        
-        <!-- PROJECT 1: NETWORX -->
-        <article class="card">
-          <div class="card-header">
-            <h3 class="card-title">Networx — Full-Stack Community Platform</h3>
-            <span class="card-date">Feb 2026</span>
-          </div>
-          <p style="color: var(--muted); font-size:0.95rem;">
-            A professional networking platform featuring dynamic feeds, audio asset streaming pipelines, user directories, and RESTful APIs hosted on Vercel and Render infrastructure.
-          </p>
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">Vercel</span>
-          </div>
-          <div class="btn-group">
-            <a href="https://networx-frontend-6623kwsez-anni88gits-projects.vercel.app/" target="_blank" class="btn btn-primary">⚡ Live Demo</a>
-            <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">💻 Source Code</a>
-          </div>
-        </article>
-
-        <!-- PROJECT 2: JOEY -->
-        <article class="card">
-          <div class="card-header">
-            <h3 class="card-title">Joey — Multilingual Conversational Assistant</h3>
-            <span class="card-date">Jan 2025</span>
-          </div>
-          <p style="color: var(--muted); font-size:0.95rem;">
-            Multilingual conversational assistant supporting 8+ languages built with asynchronous Python function calls and STT/TTS integration for intent mapping and state management.
-          </p>
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">NLP / NLU</span>
-            <span class="tag">Azure Functions</span>
-            <span class="tag">Speech Processing</span>
-          </div>
-          <div class="btn-group">
-            <a href="https://github.com/anni88git/joey-the-multilingual-voice-bot" target="_blank" class="btn btn-secondary">💻 Source Code</a>
-          </div>
-        </article>
-
-        <!-- PROJECT 3: HERMES -->
-        <article class="card">
-          <div class="card-header">
-            <h3 class="card-title">Hermes — ML Compiler</h3>
-            <span class="card-date">Mar 2026</span>
-          </div>
-          <p style="color: var(--muted); font-size:0.95rem;">
-            Mini-compiler designed around machine learning syntax, featuring a custom lexer, recursive descent parser, and data structure implementations for tokenization and validation.
-          </p>
-          <div class="tags">
-            <span class="tag">Java</span>
-            <span class="tag">Data Structures</span>
-            <span class="tag">Lexical Analysis</span>
-            <span class="tag">Recursive Descent Parsing</span>
-          </div>
-          <div class="btn-group">
-            <a href="https://github.com/anni88git" target="_blank" class="btn btn-secondary">💻 Source Code</a>
-          </div>
-        </article>
-
-      </div>
-    </section>
-
     <!-- TECHNICAL SKILLS -->
     <section id="skills">
       <h2 class="section-title">Technical Skills</h2>
       <div class="card">
         
         <div class="skills-category">
-          <h4>Programming & Core</h4>
+          <h4>Programming & Embedded Systems</h4>
           <div class="skills-list">
             <span class="skill-pill">Python</span>
             <span class="skill-pill">Java</span>
+            <span class="skill-pill">C / C++ (Embedded)</span>
+            <span class="skill-pill">ESP32 & Sensors</span>
             <span class="skill-pill">SQL</span>
             <span class="skill-pill">Data Structures & Algorithms</span>
-            <span class="skill-pill">OOP</span>
           </div>
         </div>
 
         <div class="skills-category">
-          <h4>Machine Learning & Deep Learning</h4>
+          <h4>Machine Learning & AI</h4>
           <div class="skills-list">
             <span class="skill-pill">NLP / NLU</span>
             <span class="skill-pill">Supervised Fine-Tuning (SFT)</span>
             <span class="skill-pill">Transformers</span>
             <span class="skill-pill">XLM-ROBERTa</span>
-            <span class="skill-pill">TensorFlow</span>
-            <span class="skill-pill">PyTorch</span>
+            <span class="skill-pill">PyTorch & TensorFlow</span>
             <span class="skill-pill">Generative AI</span>
           </div>
         </div>
@@ -267,21 +331,18 @@
             <span class="skill-pill">Express</span>
             <span class="skill-pill">REST APIs</span>
             <span class="skill-pill">Azure Functions</span>
-            <span class="skill-pill">MongoDB</span>
-            <span class="skill-pill">MySQL</span>
-            <span class="skill-pill">Docker</span>
-            <span class="skill-pill">Git / GitHub</span>
+            <span class="skill-pill">MongoDB & MySQL</span>
+            <span class="skill-pill">Docker & Git</span>
           </div>
         </div>
 
       </div>
     </section>
 
-    <!-- EDUCATION & CERTIFICATIONS -->
+    <!-- EDUCATION -->
     <section id="education">
-      <h2 class="section-title">Education & Achievements</h2>
+      <h2 class="section-title">Education & Certifications</h2>
       <div class="card-grid">
-        
         <article class="card">
           <div class="card-header">
             <div>
@@ -290,23 +351,91 @@
             </div>
             <span class="card-date">2023 – 2027 | CGPA: 8.8/10</span>
           </div>
-        </article>
-
-        <article class="card">
-          <h3 class="card-title" style="margin-bottom: 0.8rem;">Certifications & Leadership</h3>
-          <ul class="bullet-list">
+          <ul class="bullet-list" style="margin-top:0.8rem;">
             <li><strong>AWS Certified:</strong> Machine Learning Foundations</li>
             <li><strong>Team Leadership:</strong> Led a team of 4 developing a transformer-based system using XLM-ROBERTa.</li>
           </ul>
         </article>
-
       </div>
     </section>
 
     <footer>
-      <p>© 2026 Anirudh Chopra. Built for high performance.</p>
+      <p>© 2026 Anirudh Chopra. Engineered with precision.</p>
     </footer>
 
   </div>
+
+  <!-- Background Animation Script -->
+  <script>
+    const canvas = document.getElementById('bg-canvas');
+    const ctx = canvas.getContext('2d');
+
+    let particles = [];
+    const particleCount = 45;
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    class Particle {
+      constructor() {
+        this.x = Math.random() * canvas.width;
+        this.y = Math.random() * canvas.height;
+        this.vx = (Math.random() - 0.5) * 0.6;
+        this.vy = (Math.random() - 0.5) * 0.6;
+        this.radius = Math.random() * 2 + 1;
+      }
+
+      update() {
+        this.x += this.vx;
+        this.y += this.vy;
+
+        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+      }
+
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(99, 102, 241, 0.5)';
+        ctx.fill();
+      }
+    }
+
+    for (let i = 0; i < particleCount; i++) {
+      particles.push(new Particle());
+    }
+
+    function animate() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      for (let i = 0; i < particles.length; i++) {
+        particles[i].update();
+        particles[i].draw();
+
+        for (let j = i + 1; j < particles.length; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
+
+          if (dist < 140) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(99, 102, 241, ${0.18 - dist / 140 * 0.18})`;
+            ctx.lineWidth = 0.8;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+
+    animate();
+  </script>
 </body>
 </html>
