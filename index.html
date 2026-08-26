@@ -1,69 +1,154 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Anni | Full-Stack Developer</title>
+  <title>Anni | Full-Stack & AI Developer</title>
   <style>
-    :root { --bg: #0b0f19; --card-bg: rgba(22, 30, 49, 0.7); --border: rgba(255, 255, 255, 0.08); --accent: #6366f1; --accent-hover: #4f46e5; --text: #f8fafc; --text-muted: #94a3b8; }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', system-ui, sans-serif; }
-    body { background: var(--bg); color: var(--text); min-height: 100vh; padding: 2.5rem 1rem; }
-    .container { max-width: 800px; margin: 0 auto; }
-    header { text-align: center; margin-bottom: 3rem; }
-    h1 { font-size: 2.8rem; font-weight: 800; background: linear-gradient(135deg, #fff, var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    .subtitle { color: var(--text-muted); font-size: 1.1rem; margin-top: 0.5rem; }
-    .section-title { font-size: 1.5rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--border); padding-bottom: 0.5rem; }
-    .project-card { background: var(--card-bg); border: 1px solid var(--border); backdrop-filter: blur(12px); border-radius: 16px; padding: 1.8rem; margin-bottom: 1.5rem; }
-    .project-card:hover { border-color: rgba(99, 102, 241, 0.4); }
-    .project-tags { display: flex; gap: 0.5rem; margin: 0.8rem 0 1.2rem; flex-wrap: wrap; }
-    .tag { background: rgba(99, 102, 241, 0.15); color: #818cf8; border: 1px solid rgba(99, 102, 241, 0.3); padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 600; }
-    .btn-group { display: flex; gap: 1rem; }
-    .btn { padding: 10px 18px; border-radius: 8px; font-weight: 600; text-decoration: none; font-size: 0.9rem; transition: 0.2s; display: inline-block; }
-    .btn-primary { background: var(--accent); color: white; }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-secondary { background: rgba(255,255,255,0.05); color: var(--text); border: 1px solid var(--border); }
-    .btn-secondary:hover { background: rgba(255,255,255,0.1); }
-    .skills-list { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 3rem; }
-    .skill-chip { background: var(--card-bg); border: 1px solid var(--border); padding: 8px 16px; border-radius: 99px; font-size: 0.9rem; color: var(--text-muted); }
+    :root {
+      --bg: #000000;
+      --card-bg: rgba(18, 18, 22, 0.7);
+      --border: rgba(255, 255, 255, 0.12);
+      --border-hover: #818cf8;
+      --accent: #6366f1;
+      --cyan: #06b6d4;
+      --text: #ffffff;
+      --muted: #a1a1aa;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background-color: var(--bg); color: var(--text); min-height: 100vh; line-height: 1.5; overflow-x: hidden; }
+
+    /* Glowing Background Orbs */
+    .glow-1 { position: fixed; top: -100px; left: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(99,102,241,0.25) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
+    .glow-2 { position: fixed; bottom: -100px; right: -100px; width: 450px; height: 450px; background: radial-gradient(circle, rgba(6,182,212,0.18) 0%, rgba(0,0,0,0) 70%); pointer-events: none; }
+
+    /* Container */
+    .container { max-width: 900px; margin: 0 auto; padding: 4rem 1.5rem; position: relative; z-index: 10; }
+
+    /* Hero */
+    header { margin-bottom: 5rem; text-align: left; }
+    .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: #4ade80; margin-bottom: 1.5rem; }
+    .dot { width: 8px; height: 8px; background: #4ade80; border-radius: 50%; box-shadow: 0 0 10px #4ade80; }
+    h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.8rem; background: linear-gradient(180deg, #ffffff 40%, #a1a1aa 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    p.subtitle { font-size: 1.25rem; color: var(--muted); max-width: 600px; }
+
+    /* Section Headers */
+    .section-title { font-size: 1.6rem; font-weight: 700; margin-bottom: 2rem; display: flex; align-items: center; gap: 12px; }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* Project Cards */
+    .projects-grid { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 5rem; }
+    .project-card {
+      background: var(--card-bg); border: 1px solid var(--border); backdrop-filter: blur(16px);
+      border-radius: 20px; padding: 2rem; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .project-card:hover { transform: translateY(-4px); border-color: var(--border-hover); box-shadow: 0 10px 30px rgba(99,102,241,0.15); }
+    
+    .project-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 0.8rem; flex-wrap: wrap; gap: 1rem; }
+    .project-title { font-size: 1.5rem; font-weight: 700; color: #fff; }
+    .project-desc { color: var(--muted); font-size: 1rem; margin-bottom: 1.5rem; line-height: 1.6; }
+
+    /* Tags & Buttons */
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1.5rem; }
+    .tag { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); color: #cbd5e1; padding: 4px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 500; }
+    
+    .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px;
+      font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: all 0.2s ease;
+    }
+    .btn-primary { background: var(--text); color: #000; }
+    .btn-primary:hover { background: #e4e4e7; transform: scale(1.02); }
+    .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border); }
+    .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: #fff; }
+
+    /* Tech Stack Pills */
+    .skills-grid { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-bottom: 4rem; }
+    .skill-pill { background: var(--card-bg); border: 1px solid var(--border); padding: 10px 18px; border-radius: 99px; font-size: 0.9rem; color: #fff; }
+
+    footer { text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 2rem; }
   </style>
 </head>
 <body>
+  <div class="glow-1"></div>
+  <div class="glow-2"></div>
+
   <div class="container">
+    <!-- HERO SECTION -->
     <header>
-      <h1>Anni</h1>
-      <p class="subtitle">Full-Stack Developer & Software Engineer</p>
+      <div class="status-badge"><span class="dot"></span> Available for Projects & Engineering Roles</div>
+      <h1>Hi, I'm Anni.</h1>
+      <p class="subtitle">Full-Stack Developer building modern web platforms, REST APIs, and AI voice interfaces.</p>
     </header>
 
-    <h2 class="section-title">Featured Project</h2>
-    <div class="project-card">
-      <h3 style="font-size: 1.4rem;">Networx — Developer Network Platform</h3>
-      <div class="project-tags">
-        <span class="tag">Vercel</span>
-        <span class="tag">Node.js / Express</span>
-        <span class="tag">REST API</span>
-        <span class="tag">Render</span>
-        <span class="tag">Glassmorphism UI</span>
-      </div>
-      <p style="color: var(--text-muted); line-height: 1.6; margin-bottom: 1.2rem;">
-        A developer community platform allowing real-time post discovery, audio asset loading, user directory inspection, and RESTful backend integration across Vercel and Render infrastructure.
-      </p>
-      <div class="btn-group">
-        <a href="https://networx-frontend-omega.vercel.app" target="_blank" class="btn btn-primary">🚀 Live Demo</a>
-        <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">💻 Source Code</a>
-      </div>
-    </div>
+    <!-- FEATURED PROJECTS -->
+    <section>
+      <h2 class="section-title">Featured Projects</h2>
+      <div class="projects-grid">
+        
+        <!-- PROJECT 1: NETWORX -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Networx — Developer Platform</h3>
+          </div>
+          <p class="project-desc">
+            A developer platform featuring real-time post feeds, interactive user directories, audio asset pipelines, and cross-origin REST backend connectivity.
+          </p>
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Node.js / Express</span>
+            <span class="tag">Vercel</span>
+            <span class="tag">Render API</span>
+            <span class="tag">Glassmorphism UI</span>
+          </div>
+          <div class="btn-group">
+            <a href="https://networx-frontend-6623kwsez-anni88gits-projects.vercel.app/" target="_blank" class="btn btn-primary">⚡ Live Demo</a>
+            <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">💻 Frontend Code</a>
+          </div>
+        </article>
 
-    <h2 class="section-title">Skills & Tech Stack</h2>
-    <div class="skills-list">
-      <span class="skill-chip">JavaScript (ES6+)</span>
-      <span class="skill-chip">HTML5 / CSS3</span>
-      <span class="skill-chip">Node.js</span>
-      <span class="skill-chip">Express</span>
-      <span class="skill-chip">REST APIs</span>
-      <span class="skill-chip">Git / GitHub</span>
-      <span class="skill-chip">Vercel Deployment</span>
-    </div>
+        <!-- PROJECT 2: JOEY VOICE BOT -->
+        <article class="project-card">
+          <div class="project-header">
+            <h3 class="project-title">Joey — Multilingual Voice Bot</h3>
+          </div>
+          <p class="project-desc">
+            An intelligent AI voice assistant built to process speech recognition and facilitate multi-language conversational interaction in real-time.
+          </p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">AI / Speech Processing</span>
+            <span class="tag">NLP</span>
+            <span class="tag">Voice Synthesis</span>
+          </div>
+          <div class="btn-group">
+            <a href="https://github.com/anni88git/joey-the-multilingual-voice-bot" target="_blank" class="btn btn-secondary">💻 Source Code</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- TECH STACK -->
+    <section>
+      <h2 class="section-title">Technical Skills</h2>
+      <div class="skills-grid">
+        <span class="skill-pill">JavaScript (ES6+)</span>
+        <span class="skill-pill">Python</span>
+        <span class="skill-pill">Node.js & Express</span>
+        <span class="skill-pill">RESTful APIs</span>
+        <span class="skill-pill">AI & Voice Speech Processing</span>
+        <span class="skill-pill">HTML5 / Modern CSS</span>
+        <span class="skill-pill">Vercel & Render Cloud</span>
+        <span class="skill-pill">Git / GitHub Workflow</span>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Anni. Engineered for performance.</p>
+    </footer>
   </div>
 </body>
 </html>
