@@ -23,7 +23,7 @@
     /* Animated Canvas Background */
     #bg-canvas { position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; z-index: 0; pointer-events: none; }
 
-    .container { max-width: 920px; margin: 0 auto; padding: 4rem 1.5rem; position: relative; z-index: 10; }
+    .container { max-width: 960px; margin: 0 auto; padding: 4rem 1.5rem; position: relative; z-index: 10; }
 
     /* Navigation */
     nav { display: flex; justify-content: space-between; align-items: center; padding: 1rem 0; margin-bottom: 4rem; border-bottom: 1px solid var(--border); }
@@ -37,7 +37,7 @@
     .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: #818cf8; margin-bottom: 1.5rem; }
     .dot { width: 8px; height: 8px; background: #34d399; border-radius: 50%; box-shadow: 0 0 10px #34d399; }
     h1 { font-size: 3.5rem; font-weight: 800; letter-spacing: -1px; margin-bottom: 0.8rem; background: linear-gradient(180deg, #ffffff 40%, #9ca3af 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-    p.subtitle { font-size: 1.2rem; color: var(--muted); max-width: 680px; }
+    p.subtitle { font-size: 1.15rem; color: var(--muted); max-width: 760px; line-height: 1.7; }
     
     .contact-bar { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 1.8rem; }
     
@@ -52,40 +52,37 @@
     .card:hover { transform: translateY(-3px); border-color: var(--border-hover); box-shadow: 0 12px 35px rgba(99,102,241,0.15); }
     
     .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; flex-wrap: wrap; gap: 0.5rem; }
-    .card-title { font-size: 1.4rem; font-weight: 700; color: #fff; }
-    .card-subtitle { font-size: 0.95rem; color: var(--accent); font-weight: 600; }
-    .card-date { font-size: 0.85rem; color: var(--muted); }
+    .card-title { font-size: 1.35rem; font-weight: 700; color: #fff; }
+    .card-subtitle { font-size: 0.95rem; color: var(--accent); font-weight: 600; margin-top: 2px; }
+    .card-date { font-size: 0.85rem; color: var(--muted); font-weight: 500; }
 
-    /* Project Image Styling */
-    .project-img-container { width: 100%; max-height: 420px; overflow: hidden; border-radius: 14px; margin: 1.2rem 0; border: 1px solid var(--border); background: #000; display: flex; justify-content: center; align-items: center; }
-    .project-img { width: 100%; height: 100%; object-fit: contain; object-position: center; transition: transform 0.4s ease; }
-    .card:hover .project-img { transform: scale(1.02); }
-
-    /* Insight Boxes (Motivation & Challenges) */
-    .insight-box { background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--accent); padding: 0.8rem 1.2rem; border-radius: 0 10px 10px 0; margin: 0.8rem 0; font-size: 0.9rem; }
+    /* Insight Boxes */
+    .insight-box { background: rgba(255, 255, 255, 0.03); border-left: 3px solid var(--accent); padding: 0.9rem 1.2rem; border-radius: 0 10px 10px 0; margin: 1rem 0; font-size: 0.92rem; }
     .insight-box.challenge { border-left-color: var(--cyan); }
-    .insight-title { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.5px; color: #e2e8f0; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+    .insight-title { font-weight: 700; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.6px; color: #e2e8f0; margin-bottom: 4px; }
 
     /* Lists, Tags, Buttons */
     ul.bullet-list { margin-left: 1.2rem; color: var(--muted); font-size: 0.95rem; }
-    ul.bullet-list li { margin-bottom: 0.4rem; }
+    ul.bullet-list li { margin-bottom: 0.5rem; line-height: 1.6; }
+    ul.bullet-list li strong { color: #f3f4f6; }
 
-    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.2rem 0; }
+    .tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 1.2rem 0 0.5rem 0; }
     .tag { background: rgba(255, 255, 255, 0.05); border: 1px solid var(--border); color: #cbd5e1; padding: 4px 12px; border-radius: 8px; font-size: 0.8rem; font-weight: 500; }
     
-    .btn-group { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.2rem; }
+    .btn-group { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1.4rem; }
     .btn { display: inline-flex; align-items: center; gap: 8px; padding: 9px 18px; border-radius: 10px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s ease; }
     .btn-primary { background: #fff; color: #000; }
     .btn-primary:hover { background: #e4e4e7; transform: scale(1.02); }
     .btn-secondary { background: rgba(255, 255, 255, 0.05); color: #fff; border: 1px solid var(--border); }
     .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: #fff; }
 
-    .skills-category { margin-bottom: 1.5rem; }
-    .skills-category h4 { color: #fff; font-size: 0.95rem; margin-bottom: 0.8rem; font-weight: 600; }
+    .skills-category { margin-bottom: 1.8rem; }
+    .skills-category:last-child { margin-bottom: 0; }
+    .skills-category h4 { color: #fff; font-size: 1rem; margin-bottom: 0.8rem; font-weight: 600; }
     .skills-list { display: flex; gap: 0.6rem; flex-wrap: wrap; }
     .skill-pill { background: var(--card-bg); border: 1px solid var(--border); padding: 6px 14px; border-radius: 99px; font-size: 0.85rem; color: var(--muted); }
 
-    footer { text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 2rem; }
+    footer { text-align: center; color: var(--muted); font-size: 0.9rem; border-top: 1px solid var(--border); padding-top: 2rem; margin-top: 2rem; }
   </style>
 </head>
 <body>
@@ -98,9 +95,11 @@
     <nav>
       <div class="nav-name">Anirudh Chopra</div>
       <div class="nav-links">
-        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
         <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
         <a href="#skills">Skills</a>
+        <a href="#achievements">Achievements</a>
         <a href="#education">Education</a>
       </div>
     </nav>
@@ -109,151 +108,22 @@
       <div class="status-badge"><span class="dot"></span> Open to Engineering Roles</div>
       <h1>Anirudh Chopra</h1>
       <p class="subtitle">
-        Computer Science & AI Engineer developing intelligent software platforms, embedded IoT hardware, and custom NLP models.
+        Computer Science Engineer specializing in AI/ML pipelines, production backend systems, and embedded hardware innovations[cite: 2]. Experienced in developing scalable B2B SaaS infrastructure, supervised fine-tuning (SFT) workflows, and custom compilers[cite: 2].
       </p>
       <div class="contact-bar">
-        <a href="mailto:anirudhc422@gmail.com" class="btn btn-secondary">📧 anirudhc422@gmail.com</a>
-        <a href="tel:+918744858415" class="btn btn-secondary">📞 +91-8744858415</a>
-        <a href="https://github.com/anni88git" target="_blank" class="btn btn-secondary">💻 GitHub</a>
+        <a href="mailto:anirudhc422@gmail.com" class="btn btn-secondary">Email: anirudhc422@gmail.com</a>
+        <a href="tel:+918744858415" class="btn btn-secondary">Phone: +91-8744858415</a>
+        <a href="https://github.com/anni88git" target="_blank" class="btn btn-secondary">GitHub: github.com/anni88git</a>
       </div>
     </header>
 
-    <!-- FEATURED PROJECTS -->
-    <section id="projects">
-      <h2 class="section-title">Projects & Hardware Innovations</h2>
-      <div class="card-grid">
-        
-        <!-- HARDWARE INNOVATION: SMART GLOVE -->
-        <article class="card">
-          <div class="card-header">
-            <div>
-              <h3 class="card-title">Real-Time ASL Smart Translator Glove</h3>
-              <div class="card-subtitle">Embedded IoT & Wearable Gesture Recognition</div>
-            </div>
-            <span class="card-date">Hardware Innovation</span>
-          </div>
-
-          <div class="project-img-container">
-            <img src="Screenshot_2026-01-20-21-59-27-07_92460851df6f172a4592fca41cc2d2e6.jpg" alt="ASL Smart Glove Hardware Prototype" class="project-img" />
-          </div>
-
-          <p style="color: var(--muted); font-size:0.95rem;">
-            A wearable human-computer interaction glove converting American Sign Language (ASL) finger bends and spatial movements directly into English text and speech over wireless Bluetooth Low Energy (BLE).
-          </p>
-
-          <div class="insight-box">
-            <div class="insight-title">💡 Motivation</div>
-            <p style="color: #cbd5e1;">To eliminate accessibility barriers for the speech and hearing impaired by creating an affordable, wearable bridge between sign language and spoken English without needing external camera tracking.</p>
-          </div>
-
-          <div class="insight-box challenge">
-            <div class="insight-title">🛠️ Technical Difficulties</div>
-            <p style="color: #cbd5e1;">Filtering non-linear analog sensor noise caused by rapid hand motions, and eliminating 6-axis IMU spatial drift on the ESP32 while keeping wireless latency under 50ms for natural translation.</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">ESP32</span>
-            <span class="tag">MPU6050 (6-Axis IMU)</span>
-            <span class="tag">Flex Sensors</span>
-            <span class="tag">Bluetooth Low Energy (BLE)</span>
-            <span class="tag">Embedded C/C++</span>
-            <span class="tag">Signal Processing</span>
-          </div>
-        </article>
-
-        <!-- PROJECT: NETWORX -->
-        <article class="card">
-          <div class="card-header">
-            <h3 class="card-title">Networx — Full-Stack Community Platform</h3>
-            <span class="card-date">Feb 2026</span>
-          </div>
-          <p style="color: var(--muted); font-size:0.95rem;">
-            Full-stack social architecture enabling dynamic developer feeds, interactive profile directories, and real-time audio asset streaming pipelines.
-          </p>
-
-          <div class="insight-box">
-            <div class="insight-title">💡 Motivation</div>
-            <p style="color: #cbd5e1;">Engineered to study real-time data flow and decoupled backend deployment strategies across distributed hosting platforms.</p>
-          </div>
-
-          <div class="insight-box challenge">
-            <div class="insight-title">🛠️ Technical Difficulties</div>
-            <p style="color: #cbd5e1;">Securing multi-origin REST API requests across Vercel frontend and Render backend while preventing audio asset streaming bottlenecks.</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Node.js</span>
-            <span class="tag">Express</span>
-            <span class="tag">MongoDB</span>
-            <span class="tag">REST APIs</span>
-            <span class="tag">Vercel</span>
-            <span class="tag">Render</span>
-          </div>
-          <div class="btn-group">
-            <a href="https://networx-frontend-6623kwsez-anni88gits-projects.vercel.app/" target="_blank" class="btn btn-primary">⚡ Live Demo</a>
-            <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">💻 Source Code</a>
-          </div>
-        </article>
-
-        <!-- PROJECT: JOEY -->
-        <article class="card">
-          <div class="card-header">
-            <h3 class="card-title">Joey — Multilingual Voice Assistant</h3>
-            <span class="card-date">Jan 2025</span>
-          </div>
-          <p style="color: var(--muted); font-size:0.95rem;">
-            Voice assistant supporting 8+ languages using asynchronous Python function calls and integrated STT/TTS intent mapping routines.
-          </p>
-
-          <div class="insight-box">
-            <div class="insight-title">💡 Motivation</div>
-            <p style="color: #cbd5e1;">To make voice interfaces accessible to non-English speakers through low-latency speech translation pipelines.</p>
-          </div>
-
-          <div class="insight-box challenge">
-            <div class="insight-title">🛠️ Technical Difficulties</div>
-            <p style="color: #cbd5e1;">Synchronizing asynchronous Speech-To-Text and Text-To-Speech queues to prevent context loss during rapid multilingual conversational shifts.</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Python</span>
-            <span class="tag">NLP / NLU</span>
-            <span class="tag">Azure Functions</span>
-            <span class="tag">STT/TTS Pipelines</span>
-          </div>
-          <div class="btn-group">
-            <a href="https://github.com/anni88git/joey-the-multilingual-voice-bot" target="_blank" class="btn btn-secondary">💻 Source Code</a>
-          </div>
-        </article>
-
-        <!-- PROJECT: HERMES -->
-        <article class="card">
-          <div class="card-header">
-            <h3 class="card-title">Hermes — Machine Learning Compiler</h3>
-            <span class="card-date">Mar 2026</span>
-          </div>
-          <p style="color: var(--muted); font-size:0.95rem;">
-            Domain-specific compiler with custom lexical analysis and recursive descent parsing algorithms tailored for ML data structures.
-          </p>
-
-          <div class="insight-box">
-            <div class="insight-title">💡 Motivation</div>
-            <p style="color: #cbd5e1;">Built to understand lower-level compilation phases, tokenization, and AST generation specifically for machine learning syntax.</p>
-          </div>
-
-          <div class="insight-box challenge">
-            <div class="insight-title">🛠️ Technical Difficulties</div>
-            <p style="color: #cbd5e1;">Handling grammar ambiguity and recursive validation logic during lexical parsing without performance degradation.</p>
-          </div>
-
-          <div class="tags">
-            <span class="tag">Java</span>
-            <span class="tag">Compiler Design</span>
-            <span class="tag">Lexical Analysis</span>
-            <span class="tag">AST Validation</span>
-          </div>
-        </article>
-
+    <!-- TECHNICAL SUMMARY / ABOUT -->
+    <section id="about">
+      <h2 class="section-title">Technical Overview</h2>
+      <div class="card">
+        <p style="color: var(--muted); font-size: 0.98rem; line-height: 1.7;">
+          Driven Computer Science undergraduate focusing on Advanced Java Object-Oriented Programming, Data Structures & Algorithms, full-stack microservices, and specialized AI/ML engineering[cite: 2]. Adept at translating complex theoretical concepts into robust production systems—ranging from low-latency sensor signal processing on embedded microcontrollers to automated natural language fine-tuning pipelines for enterprise environments[cite: 2].
+        </p>
       </div>
     </section>
 
@@ -266,14 +136,14 @@
           <div class="card-header">
             <div>
               <h3 class="card-title">Gen AI Engineer Intern</h3>
-              <div class="card-subtitle">Digital Hercules Innovations (Create AiGenie)</div>
+              <div class="card-subtitle">Digital Hercules Innovations (Create AiGenie) | Hybrid</div>
             </div>
-            <span class="card-date">Apr 2026 – July 2026</span>
+            <span class="card-date">Apr 2026 – Present</span>
           </div>
           <ul class="bullet-list">
-            <li>Developed production-level AI components for a B2B SaaS platform focused on Amazon Ads optimization.</li>
-            <li>Built rule-based and ML-powered automation workflows for real-time ad-performance analysis.</li>
-            <li>Preprocessed e-commerce datasets using Python for feature engineering and AI/ML workflows.</li>
+            <li><strong>Production AI Pipelines:</strong> Developing production-level AI components for a B2B SaaS platform focused on Amazon Ads optimization[cite: 2].</li>
+            <li><strong>Rule Engine Optimization:</strong> Building rule-based configurations and ML-powered automation workflows to enhance real-time ad-performance dashboards[cite: 2].</li>
+            <li><strong>Backend Integration:</strong> Integrating live backend APIs and preprocessing e-commerce datasets using Python for feature engineering and performance analytics[cite: 2].</li>
           </ul>
         </article>
 
@@ -281,15 +151,180 @@
           <div class="card-header">
             <div>
               <h3 class="card-title">Machine Learning Intern</h3>
-              <div class="card-subtitle">OK Driver</div>
+              <div class="card-subtitle">OK Driver | Remote</div>
             </div>
             <span class="card-date">May 2025 – July 2025</span>
           </div>
           <ul class="bullet-list">
-            <li>Engineered Supervised Fine-Tuning (SFT) workflows for XLM-ROBERTa, processing 10k+ multilingual inputs for intent detection.</li>
-            <li>Designed categorization logic for detecting driver distress signals while maintaining low-latency performance.</li>
-            <li>Built evaluation frameworks for conversational AI pipelines, reducing hallucinations by 15%.</li>
+            <li><strong>Backend Data Pipelines:</strong> Engineered automated Supervised Fine-Tuning (SFT) workflows for XLM-ROBERTa, processing 10k+ multilingual inputs for intent detection[cite: 2].</li>
+            <li><strong>System Logic:</strong> Designed high-precision categorization logic to detect driver distress signals, achieving strict adherence to low-latency performance SLAs[cite: 2].</li>
+            <li><strong>API Evaluation:</strong> Built rubric-based frameworks to evaluate conversational API pipelines, focusing on response relevance and reducing hallucinations by 15%[cite: 2].</li>
           </ul>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- PROJECTS & HARDWARE INNOVATIONS -->
+    <section id="projects">
+      <h2 class="section-title">Projects & Hardware Innovations</h2>
+      <div class="card-grid">
+        
+        <!-- SMART GLOVE PROJECT (NO IMAGE) -->
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Real-Time ASL Smart Translator Glove</h3>
+              <div class="card-subtitle">Embedded IoT & Wearable Gesture Recognition</div>
+            </div>
+            <span class="card-date">Hardware Project</span>
+          </div>
+
+          <p style="color: var(--muted); font-size:0.95rem; margin-bottom: 0.5rem;">
+            Designed and built a custom human-computer interaction glove that translates American Sign Language (ASL) gestures directly into English text and speech in real time over Bluetooth Low Energy (BLE).
+          </p>
+
+          <div class="insight-box">
+            <div class="insight-title">Motivation</div>
+            <p style="color: #cbd5e1;">To break down communication barriers for the speech and hearing impaired by engineering an affordable, self-contained wearable translator that eliminates reliance on external camera vision systems.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">Engineering Challenges</div>
+            <p style="color: #cbd5e1;">Calibrating non-linear resistance curves from custom flex sensors across varying finger bend radii, compensating for 6-axis IMU spatial drift on the ESP32 microcontroller, and tuning sensor polling to ensure execution latency remains under 50ms.</p>
+          </div>
+
+          <ul class="bullet-list" style="margin-top: 0.8rem;">
+            <li>Integrated flex sensors along each finger to capture degree-of-flexion state vectors.</li>
+            <li>Utilized MPU6050 6-axis IMU to record dynamic hand orientation, spatial roll, pitch, and wrist rotation velocity.</li>
+            <li>Engineered low-latency parsing logic on the ESP32 to map multi-sensor arrays directly to ASL dataset characters.</li>
+          </ul>
+
+          <div class="tags">
+            <span class="tag">ESP32</span>
+            <span class="tag">MPU6050 (6-Axis IMU)</span>
+            <span class="tag">Flex Sensors</span>
+            <span class="tag">Bluetooth Low Energy (BLE)</span>
+            <span class="tag">Embedded C/C++</span>
+            <span class="tag">Signal Processing</span>
+          </div>
+        </article>
+
+        <!-- NETWORX -->
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Networx — Full-Stack Community Platform</h3>
+              <div class="card-subtitle">Node.js, Express, MongoDB, React[cite: 2]</div>
+            </div>
+            <span class="card-date">Feb 2026</span>
+          </div>
+          
+          <ul class="bullet-list">
+            <li>Developed a LinkedIn-inspired professional network featuring secure user authentication and dynamic content feeds[cite: 2].</li>
+            <li>Designed and implemented robust RESTful API endpoints for backend-frontend communication and resource management[cite: 2].</li>
+            <li>Engineered custom asset pipelines for low-latency media processing and reliable database operations[cite: 2].</li>
+          </ul>
+
+          <div class="insight-box">
+            <div class="insight-title">Motivation</div>
+            <p style="color: #cbd5e1;">To architect a production-ready social system exploring decoupled backend infrastructure, state management, and multi-origin data isolation.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">Engineering Challenges</div>
+            <p style="color: #cbd5e1;">Managing cross-origin resource sharing (CORS), JWT authentication states across Vercel and Render deployments, and optimizing MongoDB indexing to prevent feed query delays.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">MongoDB</span>
+            <span class="tag">React</span>
+            <span class="tag">RESTful APIs</span>
+            <span class="tag">Vercel & Render</span>
+          </div>
+
+          <div class="btn-group">
+            <a href="https://networx-frontend-6623kwsez-anni88gits-projects.vercel.app/" target="_blank" class="btn btn-primary">Live Demo</a>
+            <a href="https://github.com/anni88git/networx-frontend" target="_blank" class="btn btn-secondary">Source Code</a>
+          </div>
+        </article>
+
+        <!-- HERMES ML COMPILER -->
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Hermes ML Compiler</h3>
+              <div class="card-subtitle">Java, Lexical Analysis, Recursive Descent Parsing[cite: 2]</div>
+            </div>
+            <span class="card-date">Mar 2026</span>
+          </div>
+
+          <ul class="bullet-list">
+            <li>Architected a mini-compiler in Java with a custom Lexer and parser specifically designed for machine learning syntax[cite: 2].</li>
+            <li>Implemented complex data structures for tokenization and semantic analysis, optimizing compilation efficiency[cite: 2].</li>
+            <li>Constructed Abstract Syntax Tree (AST) evaluation routines to validate custom tensor logic before execution[cite: 2].</li>
+          </ul>
+
+          <div class="insight-box">
+            <div class="insight-title">Motivation</div>
+            <p style="color: #cbd5e1;">To gain low-level mastery over program execution, memory layout, AST parsing, and token optimization tailored for specialized machine learning syntax.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">Engineering Challenges</div>
+            <p style="color: #cbd5e1;">Handling grammar ambiguity in complex mathematical expressions and resolving nested array symbol references efficiently during parsing.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Java</span>
+            <span class="tag">Lexical Analysis</span>
+            <span class="tag">Recursive Descent Parsing</span>
+            <span class="tag">AST Generation</span>
+            <span class="tag">Compiler Design</span>
+          </div>
+          <div class="btn-group">
+            <a href="https://github.com/anni88git" target="_blank" class="btn btn-secondary">Source Code</a>
+          </div>
+        </article>
+
+        <!-- JOEY VOICE ASSISTANT -->
+        <article class="card">
+          <div class="card-header">
+            <div>
+              <h3 class="card-title">Joey Multilingual Conversational Assistant</h3>
+              <div class="card-subtitle">Python, Azure Functions, NLP / NLU[cite: 2]</div>
+            </div>
+            <span class="card-date">Jan 2025</span>
+          </div>
+
+          <ul class="bullet-list">
+            <li>Built a backend integration for a voice assistant supporting 8+ languages using asynchronous function calls[cite: 2].</li>
+            <li>Integrated STT/TTS modules with a logic layer designed for structured NLU mapping and state management[cite: 2].</li>
+            <li>Optimized speech-to-intent pipeline execution to maintain smooth context retention across user interaction loops[cite: 2].</li>
+          </ul>
+
+          <div class="insight-box">
+            <div class="insight-title">Motivation</div>
+            <p style="color: #cbd5e1;">To explore serverless cloud function architectures and build a high-performance multilingual processing engine for global accessibility.</p>
+          </div>
+
+          <div class="insight-box challenge">
+            <div class="insight-title">Engineering Challenges</div>
+            <p style="color: #cbd5e1;">Minimizing voice transmission latency over Azure serverless endpoints and mapping disparate language syntax variations into standardized NLU intent vectors.</p>
+          </div>
+
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Azure Functions</span>
+            <span class="tag">NLP / NLU</span>
+            <span class="tag">STT / TTS</span>
+            <span class="tag">Asynchronous Logic</span>
+          </div>
+          <div class="btn-group">
+            <a href="https://github.com/anni88git/joey-the-multilingual-voice-bot" target="_blank" class="btn btn-secondary">Source Code</a>
+          </div>
         </article>
 
       </div>
@@ -301,14 +336,33 @@
       <div class="card">
         
         <div class="skills-category">
-          <h4>Programming & Embedded Systems</h4>
+          <h4>Languages</h4>
           <div class="skills-list">
+            <span class="skill-pill">Java (Advanced OOP)</span>
             <span class="skill-pill">Python</span>
-            <span class="skill-pill">Java</span>
-            <span class="skill-pill">C / C++ (Embedded)</span>
-            <span class="skill-pill">ESP32 & Sensors</span>
             <span class="skill-pill">SQL</span>
-            <span class="skill-pill">Data Structures & Algorithms</span>
+            <span class="skill-pill">C / C++ (Embedded)</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h4>Backend & Frameworks</h4>
+          <div class="skills-list">
+            <span class="skill-pill">Node.js</span>
+            <span class="skill-pill">Express</span>
+            <span class="skill-pill">RESTful APIs</span>
+            <span class="skill-pill">MERN Stack</span>
+            <span class="skill-pill">Azure Functions</span>
+          </div>
+        </div>
+
+        <div class="skills-category">
+          <h4>Databases & Cloud</h4>
+          <div class="skills-list">
+            <span class="skill-pill">MongoDB</span>
+            <span class="skill-pill">MySQL</span>
+            <span class="skill-pill">Docker</span>
+            <span class="skill-pill">Kubernetes</span>
           </div>
         </div>
 
@@ -317,43 +371,57 @@
           <div class="skills-list">
             <span class="skill-pill">NLP / NLU</span>
             <span class="skill-pill">Supervised Fine-Tuning (SFT)</span>
-            <span class="skill-pill">Transformers</span>
             <span class="skill-pill">XLM-ROBERTa</span>
-            <span class="skill-pill">PyTorch & TensorFlow</span>
-            <span class="skill-pill">Generative AI</span>
+            <span class="skill-pill">Transformers</span>
+            <span class="skill-pill">PyTorch</span>
+            <span class="skill-pill">Feature Engineering</span>
           </div>
         </div>
 
         <div class="skills-category">
-          <h4>Frameworks & Tools</h4>
+          <h4>Tools & Methodologies</h4>
           <div class="skills-list">
-            <span class="skill-pill">Node.js</span>
-            <span class="skill-pill">Express</span>
-            <span class="skill-pill">REST APIs</span>
-            <span class="skill-pill">Azure Functions</span>
-            <span class="skill-pill">MongoDB & MySQL</span>
-            <span class="skill-pill">Docker & Git</span>
+            <span class="skill-pill">Git / GitHub</span>
+            <span class="skill-pill">Postman</span>
+            <span class="skill-pill">System Design</span>
+            <span class="skill-pill">CI/CD Basics</span>
+            <span class="skill-pill">Embedded Electronics & Sensors</span>
           </div>
         </div>
 
       </div>
     </section>
 
+    <!-- ACHIEVEMENTS & CERTIFICATIONS -->
+    <section id="achievements">
+      <h2 class="section-title">Achievements & Certifications</h2>
+      <div class="card">
+        <ul class="bullet-list">
+          <li><strong>AWS Certified Machine Learning Foundations:</strong> Proficient in cloud infrastructure, automated model training pipelines, and cloud deployment standard practices[cite: 2].</li>
+          <li><strong>Technical Aptitude:</strong> Strong focus on Advanced Java OOP and logical reasoning; actively practicing Data Structures & Algorithms to optimize backend system logic[cite: 2].</li>
+          <li><strong>Team Leadership:</strong> Led a project engineering team of 4 in developing a real-time transformer system utilizing XLM-ROBERTa[cite: 2].</li>
+        </ul>
+      </div>
+    </section>
+
     <!-- EDUCATION -->
     <section id="education">
-      <h2 class="section-title">Education & Certifications</h2>
+      <h2 class="section-title">Education</h2>
       <div class="card-grid">
         <article class="card">
           <div class="card-header">
             <div>
               <h3 class="card-title">IILM University, Greater Noida</h3>
-              <div class="card-subtitle">B.Tech in Computer Science (AI & ML Specialization)</div>
+              <div class="card-subtitle">B.Tech in Computer Science (AI & ML Specialization)[cite: 2]</div>
             </div>
-            <span class="card-date">2023 – 2027 | CGPA: 8.8/10</span>
+            <span class="card-date">2023 – 2027</span>
           </div>
+          <p style="color: var(--muted); font-size: 0.95rem; margin-top: 0.5rem;">
+            <strong>CGPA:</strong> 8.80 / 10
+          </p>
           <ul class="bullet-list" style="margin-top:0.8rem;">
-            <li><strong>AWS Certified:</strong> Machine Learning Foundations</li>
-            <li><strong>Team Leadership:</strong> Led a team of 4 developing a transformer-based system using XLM-ROBERTa.</li>
+            <li>Core focus on Artificial Intelligence, Machine Learning Algorithms, Database Systems, and Compiler Engineering[cite: 2].</li>
+            <li>Active involvement in technical project leadership and hardware-software system integration[cite: 2].</li>
           </ul>
         </article>
       </div>
@@ -365,7 +433,7 @@
 
   </div>
 
-  <!-- Background Animation Script -->
+  <!-- Background Canvas Particle Animation Script -->
   <script>
     const canvas = document.getElementById('bg-canvas');
     const ctx = canvas.getContext('2d');
